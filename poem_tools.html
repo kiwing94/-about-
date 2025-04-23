@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Poem Tools</title></head>
+<body>
+<h1>Poem Tools</h1>
+<form method="post">
+    <textarea name="poem_text" rows="10" cols="50">{{ poem_text }}</textarea><br>
+    <button name="action" value="analyze">Analyze</button>
+    <button name="action" value="publish">Publish</button>
+</form>
+{% if analysis %}
+<pre>{{ analysis }}</pre>
+{% endif %}
+<a href="{{ url_for('home') }}">Back</a>
+</body>
+</html>

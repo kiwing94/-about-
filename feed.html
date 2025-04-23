@@ -1,0 +1,20 @@
+<h2>📖 Public Poem Feed</h2>
+<div id="feedList">Loading poems...</div>
+<script src="firebase.js"></script>
+<script>
+  async function loadPublicPoems() {
+    const snapshot = await firebase.firestore().collection("poems").where("public", "==", true).orderBy("timestamp", "desc").get();
+    const feedList = document.getElementById("feedList");
+    feedList.innerHTML = "";
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      const div = document.createElement("div");
+      div.innerHTML = `<h3>${data.title || "Untitled"}</h3><pre>${data.text}</pre><small>${new Date(data.timestamp.toDate()).toLocaleString()}</small><hr>`;
+      feedList.appendChild(div);
+    });
+  }
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) loadPublicPoems();
+    else document.getElementById("feedList").innerHTML = "Please log in to view the feed.";
+  });
+</script>

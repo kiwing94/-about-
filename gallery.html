@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Gallery</title></head>
+<body>
+<h1>Gallery</h1>
+<form method="post" enctype="multipart/form-data" action="{{ url_for('upload_gallery_image') }}">
+    <input type="file" name="gallery_image">
+    <input type="text" name="caption" placeholder="Enter caption">
+    <input type="submit" value="Upload">
+</form>
+{% for image in images %}
+    <div>
+        <img src="{{ url_for('static', filename='gallery/' + image) }}" width="150"><br>
+        <small>{{ image }}</small>
+    </div>
+{% endfor %}
+<a href="{{ url_for('home') }}">Home</a>
+</body>
+</html>

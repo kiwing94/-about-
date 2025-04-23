@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Settings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Select Your Language</h1>
+    <div>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('sv')">Svenska</button>
+        <button onclick="changeLanguage('es')">Español</button>
+        <button onclick="changeLanguage('it')">Italiano</button>
+        <button onclick="changeLanguage('fr')">Français</button>
+    </div>
+
+    <script src="firebase.js"></script>
+    <script>
+        function changeLanguage(lang) {
+            localStorage.setItem("language", lang);
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>

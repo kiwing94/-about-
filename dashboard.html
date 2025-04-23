@@ -1,0 +1,15 @@
+<h2>Welcome, {{ username }}!</h2>
+<p>You have {{ new_comments }} new comments.</p>
+{% if profile_pic %}
+<img src="{{ profile_pic }}" style="max-width:120px;"><br>
+{% endif %}
+<h4>Your Favorites</h4>
+{% for category, links in favorites.items() %}
+  <b>{{ category }}</b>
+  <ul>
+    {% for link in links %}
+      <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+<form method="POST" action="/logout"><button type="submit">Logout</button></form>

@@ -1,0 +1,12 @@
+/* All links (a tags) */
+a {
+    color: #ff66b2; /* Rosa färg för alla länkar */
+    text-decoration: none; /* Tar bort understrykning */
+    transition: color 0.3s ease; /* Mjuk övergång för färgändring */
+}
+
+/* Länk på hover */
+a:hover {
+    color: #ff3385; /* Lite mörkare rosa när man hovrar över länken */
+    text-decoration: underline; /* Lägger till understrykning vid hover */
+}
