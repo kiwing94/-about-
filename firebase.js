@@ -1,24 +1,19 @@
-// Import Firebase App and required services
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
+// firebase.js (efter npm-installation)
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-// Your Firebase web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyB3Q_tZ2NuGee0gUgvm_RgK51FsfNgH_34",  // Replace with your Firebase config values
-    authDomain: "hikari-flux.web.app",
-    projectId: "hikari-flux",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "hikari-flux"
+  apiKey: "AIzaSyC-TIy3u7uDZ2upqLOG2b769hQ--RpfaNw",
+  authDomain: "webpage-79bbc.firebaseapp.com",
+  projectId: "webpage-79bbc",
+  storageBucket: "webpage-79bbc.appspot.com",
+  messagingSenderId: "967668932710",
+  appId: "1:967668932710:web:e5731b76a5a9ec9f214da7"
 };
 
-// Initialize Firebase
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-} else {
-  firebase.app(); // If already initialized, use that one
-}
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Firebase services export
-export default firebase;
+export { auth, db };
